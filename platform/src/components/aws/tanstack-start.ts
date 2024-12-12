@@ -444,6 +444,7 @@ export class TanstackStart extends Component implements Link.Linkable {
             .readdirSync(path.join(outputPath, assetsPath), {
               withFileTypes: true,
             })
+            .filter(item => !(item.isDirectory() && item.name === "api"))
             .map((item) => (item.isDirectory() ? `${item.name}/*` : item.name)),
         };
       });
